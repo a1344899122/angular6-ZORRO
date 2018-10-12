@@ -1,5 +1,18 @@
-<nz-carousel [nzEffect]="'fade'">
-    <div nz-carousel-content *ngFor="let index of array">
-        <h3>{{index}}</h3>
-    </div>
-</nz-carousel>
+<nz-steps [nzCurrent]="current">
+    <nz-step nzTitle="已完成"></nz-step>
+    <nz-step nzTitle="正在进行"></nz-step>
+    <nz-step nzTitle="请等待"></nz-step>
+</nz-steps>
+
+<div class="steps-content">{{ index }}</div>
+<div class="steps-action">
+    <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+      <span>返回</span>
+    </button>
+    <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+      <span>继续</span>
+    </button>
+    <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
+      <span>完成</span>
+    </button>
+</div>

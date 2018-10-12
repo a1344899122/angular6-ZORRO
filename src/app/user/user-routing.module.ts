@@ -5,9 +5,9 @@ import { BillComponent } from './bill/bill.component';
 
 
 const routes: Routes = [
-  { path: "", redirectTo: "tom" },
+  {path: "",redirectTo:'tom'},
   {
-    path: "",
+    path: "", 
     children: [
       {
         path: "tom",

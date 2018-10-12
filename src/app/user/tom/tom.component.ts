@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tom',
+  selector: 'nz-demo-table-basic',
   templateUrl: './tom.component.html',
   styleUrls: ['./tom.component.css']
 })
+
 export class TomComponent implements OnInit {
 
+
+  
   constructor() { }
 
   ngOnInit() {
