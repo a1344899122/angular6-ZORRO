@@ -1,0 +1,50 @@
+<!-- 导航 -->
+<nz-breadcrumb>
+    <nz-breadcrumb-item>
+        <i class="anticon anticon-home"></i>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+        <a> <span>上传列表</span></a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+        上传
+    </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+
+<div class="clearfix" style="    padding: 20px 0;">
+    <nz-upload nzAction="https://jsonplaceholder.typicode.com/posts/" nzListType="picture-card" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 3" [nzPreview]="handlePreview">
+        <i class="anticon anticon-plus"></i>
+        <div class="ant-upload-text">Upload</div>
+    </nz-upload>
+    <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible=false">
+        <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ 'width': '100%' }" />
+        </ng-template>
+    </nz-modal>
+</div>
+
+
+
+<nz-tree #treeCom [nzData]="nodes" nzMultiple="true" (nzClick)="activeNode($event)" (nzDblClick)="openFolder($event)">
+    <ng-template #contextTemplate>
+        <ul nz-menu nzInDropDown>
+            <li nz-menu-item (click)="selectDropdown('file')">新建文件</li>
+            <li nz-menu-item (click)="selectDropdown('folder')">新建文件夹</li>
+        </ul>
+    </ng-template>
+    <ng-template #nzTreeTemplate let-node>
+        <span class="custom-node" [class.active]="activedNode?.key===node.key">
+    <span *ngIf="!node.isLeaf" (contextmenu)="contextMenu($event,contextTemplate)">
+      <i class="anticon" [ngClass]="node.isExpanded ? 'anticon-folder-open' : 'anticon-folder'" (click)="openFolder(node)"></i>
+      <span class="folder-name">{{node.title}}</span>
+        <span class="folder-desc">created by {{node?.origin?.author | lowercase}}</span>
+        </span>
+        <span *ngIf="node.isLeaf">
+      <i class="anticon anticon-file"></i>
+      <span class="file-name">{{node.title}}</span>
+        <span class="file-desc">modified by {{node?.origin?.author | lowercase}}</span>
+        </span>
+        </span>
+    </ng-template>
+</nz-tree>

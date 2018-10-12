@@ -1,1 +1,83 @@
+<!-- 缓存条 -->
 <nz-skeleton [nzActive]="true"></nz-skeleton>
+
+<!-- 抽屉弹窗 -->
+<button nz-button nzType="primary" nzBlock (click)="open()">新建日程</button>
+<nz-drawer [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px' }" [nzMaskClosable]="false" [nzWidth]="720" [nzVisible]="visible" nzTitle="创建日程" (nzOnClose)="close()">
+    <form nz-form>
+        <div nz-row nzGutter="8">
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>标题</nz-form-label>
+                    <nz-form-control>
+                        <input nz-input placeholder="请输入标题">
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>Url</nz-form-label>
+                    <nz-form-control>
+                        <nz-input-group nzAddOnBefore="http://" nzAddOnAfter=".com">
+                            <input type="text" nz-input placeholder="请输入url">
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row nzGutter="8">
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>管理人</nz-form-label>
+                    <nz-form-control>
+                        <nz-select nzPlaceHolder="请选择管理人"></nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>类型</nz-form-label>
+                    <nz-form-control>
+                        <nz-select nzPlaceHolder="请选择类型"></nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row nzGutter="8">
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>审批人</nz-form-label>
+                    <nz-form-control>
+                        <nz-select nzPlaceHolder="请选择审批人"></nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+                <nz-form-item>
+                    <nz-form-label>结束时间</nz-form-label>
+                    <nz-form-control>
+                        <nz-range-picker></nz-range-picker>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+        <div nz-row nzGutter="8">
+            <div nz-col nzSpan="24">
+                <nz-form-item>
+                    <nz-form-label>描述</nz-form-label>
+                    <nz-form-control>
+                        <textarea nz-input placeholder="请输入URL描述" [nzAutosize]="{ minRows: 4, maxRows: 4 }"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+    </form>
+    <div class="footer">
+        <button type="button" (click)="close()" class="ant-btn" style="margin-right: 8px;"><span>退出</span></button>
+        <button type="button" (click)="close()" class="ant-btn ant-btn-primary"><span>提交</span></button>
+    </div>
+</nz-drawer>
+
+
+<!-- 日期组件 -->
+<nz-calendar></nz-calendar>

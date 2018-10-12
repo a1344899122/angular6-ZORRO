@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'nz-demo-table-basic',
@@ -6,13 +6,18 @@ import { Component,OnInit } from '@angular/core';
   styleUrls: ['./tom.component.css']
 })
 
-export class TomComponent implements OnInit {
+export class TomComponent   {
 
 
-  
-  constructor() { }
 
-  ngOnInit() {
+  visible = false;
+
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 
 }

@@ -1,0 +1,51 @@
+/* 上传组件 */
+
+:host ::ng-deep i {
+    font-size: 32px;
+    color: #999;
+}
+
+:host ::ng-deep .ant-upload-text {
+    margin-top: 8px;
+    color: #666;
+}
+
+
+/* 树组件 */
+
+:host ::ng-deep .ant-tree {
+    overflow: hidden;
+}
+
+ :host ::ng-deep .ant-tree li {
+    padding: 4px 0 0 0;
+}
+
+.custom-node {
+    cursor: pointer;
+    line-height: 24px;
+    margin-left: 4px;
+    display: inline-block;
+    margin: 0 -1000px;
+    padding: 0 1000px;
+}
+
+.active {
+    background: #1890FF;
+    color: #fff;
+}
+
+.file-name,
+.folder-name {
+    margin-left: 4px;
+}
+
+.file-desc,
+.folder-desc {
+    padding: 0 8px;
+    display: inline-block;
+    background: #87CEFF;
+    color: #FFFFFF;
+    position: relative;
+    left: 12px;
+}

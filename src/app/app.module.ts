@@ -8,15 +8,16 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutComponent } from './common/layout/layout.component';
+import { SysCommonModule } from './common/sys-common.module';
+
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
   ],
   imports: [
+    SysCommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -26,6 +27,6 @@ registerLocaleData(zh);
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  
 })
 export class AppModule { }

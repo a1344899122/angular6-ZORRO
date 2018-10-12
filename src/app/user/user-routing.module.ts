@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { TomComponent } from './tom/tom.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BillComponent } from './bill/bill.component';
-
+import { AlexComponent } from './alex/alex.component';
 
 const routes: Routes = [
   {path: "",redirectTo:'tom'},
@@ -16,6 +16,10 @@ const routes: Routes = [
       {
         path: "bill",
         component:BillComponent
+      },
+      {
+        path: "alex",
+        component:AlexComponent
       },
     ]
   }
