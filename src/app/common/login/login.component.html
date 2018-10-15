@@ -22,7 +22,9 @@
             <span>记住账户</span>
           </label>
                 <a class="login-form-forgot" class="login-form-forgot">忘记密码</a>
-                <button nz-button class="login-form-button" [nzType]="'primary'" routerLink="/user">登录</button>
+                <!-- <button nz-button class="login-form-button" [nzType]="'primary'" routerLink="/user">登录</button> -->
+                <button nz-button class="login-form-button" [nzType]="'primary'" (click)="login()">登录</button>
+
                 <a href="">去注册!</a>
             </nz-form-control>
         </nz-form-item>

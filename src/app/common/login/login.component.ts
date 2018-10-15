@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import  {ConfigService} from './../../common/service/common/sys-common.service'
 import {
   AbstractControl,
   FormBuilder,
@@ -40,7 +41,7 @@ export class  LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private configService:ConfigService) {
   }
 
   ngOnInit(): void {
@@ -50,4 +51,18 @@ export class  LoginComponent implements OnInit {
       remember: [ true ]
     });
   }
+  config;
+  headers;
+  error;
+  login() {
+    this.configService.login('zhy','888888')
+    .subscribe(
+      isLoggedIn => {
+       console.log(isLoggedIn)
+      }, // success path
+      error => this.error = error // error path
+    );
+  }
+
+ 
 }

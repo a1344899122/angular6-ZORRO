@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { NgZorroAntdModule} from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ConfigService } from './service/common/sys-common.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   declarations: [LayoutComponent,LoginComponent],
-  
+  providers:[ConfigService]
 
 })
 export class baseModule { }

@@ -9,7 +9,7 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { AppRoutingModule } from './app-routing.module';
 import { SysCommonModule } from './common/sys-common.module';
-
+import { httpInterceptorProviders } from './common/config/index'
 registerLocaleData(zh);
 
 @NgModule({
@@ -17,15 +17,18 @@ registerLocaleData(zh);
     AppComponent,
   ],
   imports: [
-    SysCommonModule,
+    SysCommonModule, //导入其他关键模块
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    NgZorroAntdModule,
-    AppRoutingModule,
+    HttpClientModule,  
+    NgZorroAntdModule,  //导入UI
+    AppRoutingModule,   //导入路由服务
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN },
+    
+    httpInterceptorProviders  //http 拦截器
+  ],
   bootstrap: [AppComponent],
   
 })
